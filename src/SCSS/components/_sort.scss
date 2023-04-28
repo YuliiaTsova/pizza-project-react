@@ -1,0 +1,47 @@
+.sort {
+  margin-left: 25px;
+  position: relative;
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  &__label-img {
+  }
+  &__title {
+    min-width: 60px;
+  }
+  &__value {
+    color: $orange;
+    border-bottom: dotted 1px $orange;
+    cursor: pointer;
+  }
+  &__drop {
+    // display: none;
+    position: absolute;
+    right: 0;
+    padding: 7px 0 7px 0;
+    width: 132px;
+    height: auto;
+    border-radius: $bradius-small;
+    background-color: #fff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+  }
+  &__list {
+  }
+  &__item {
+    padding: 10px 22px 10px 14px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    cursor: pointer;
+    &.active {
+      background-color: rgba(254, 95, 30, 0.05);
+      font-weight: 700;
+      color: $orange;
+    }
+    &:hover {
+      background-color: rgba(254, 95, 30, 0.05);
+    }
+  }
+}

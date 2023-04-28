@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container">
+                <div class="header__content">
+                    <div class="header__logo">
+                        <img src="./assets/logo.png" alt="logo" class="header__logo-img">
+                        <div class="header__desc">
+                            <h1 class="header__title">REACT PIZZA</h1>
+                            <p class="header__subtitle">the best pizza in the world</p>
+                        </div>
+                    </div>
+                    <div class="header__cart cart-button">
+                        <span class="cart-button__price">20 $</span>
+                        <span class="cart-button__icon">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6.33333 16.3333C7.06971 16.3333 7.66667 15.7364 7.66667 15C7.66667 14.2636 7.06971 13.6667 6.33333 13.6667C5.59695 13.6667 5 14.2636 5 15C5 15.7364 5.59695 16.3333 6.33333 16.3333Z"
+                                    stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M14.3333 16.3333C15.0697 16.3333 15.6667 15.7364 15.6667 15C15.6667 14.2636 15.0697 13.6667 14.3333 13.6667C13.597 13.6667 13 14.2636 13 15C13 15.7364 13.597 16.3333 14.3333 16.3333Z"
+                                    stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M4.78002 4.99999H16.3334L15.2134 10.5933C15.1524 10.9003 14.9854 11.176 14.7417 11.3722C14.4979 11.5684 14.1929 11.6727 13.88 11.6667H6.83335C6.50781 11.6694 6.1925 11.553 5.94689 11.3393C5.70128 11.1256 5.54233 10.8295 5.50002 10.5067L4.48669 2.82666C4.44466 2.50615 4.28764 2.21182 4.04482 1.99844C3.80201 1.78505 3.48994 1.66715 3.16669 1.66666H1.66669"
+                                    stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                        <span class="cart-button__count">3</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <section class="categories">
+        <div class="container">
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#" class="nav__link">All</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Meat</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Veagan</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Grill</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Spicy</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Calzone</a></li>
+                </ul>
+            </nav>
+            <div class="sort">
+                <div class="sort__label">
+                    <img class="sort__label-img">
+                    <p class="sort__title"><b>Sort by: </b></p>
+                    <span class="sort__value">Popular</span>
+                    <div class="sort__drop">
+                        <ul class="sort__list">
+                            <li class="sort__item active">popular</li>
+                            <li class="sort__item ">price</li>
+                            <li class="sort__item ">alphabet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main>
+        <div class="container">
+            <secction class="products" aria-label="products">
+                <h2 class="products__title">all pizzas</h2>
+                <div class="products__content">
+                    <ul class="products__list">
+                        <li class="products_item">
+                            <article class="item">
+                                <img src="" alt="" class="item__img">
+                                <h3 class="item__title">Meat</h3>
+                                <div class="item__details details">
+                                    <ul class="details__list-types list-reset">
+                                        <li class="details__item-types">Classic</li>
+                                        <li class="details__item-types">Double</li>
+                                    </ul>
+                                    <ul class="details__list-sizes list-reset">
+                                        <li class="details__item-sizes"></li>
+                                        <li class="details__item-sizes"></li>
+                                    </ul>
+                                </div>
+                                <div class="item__bottom">
+                                    <span class="item__price">115$</span>
+                                    <div class="item__btn-container">
+                                        <button class="btn item__btn btn--outline" aria-label="add pizza">
+                                            <img src="./assets/plus.png" alt="plus" class="item__btn-img">
+                                            <span class="item__btn-title">Add pizza</span>
+                                            <span class="item__quantity">2</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
+                    </ul>
+                </div>
+            </secction>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+.details {
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 15px;
+  &__img {
+    width: 260px;
+    height: 260px;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.5;
+    // text-align: center;
+  }
+  &__details {
+  }
+  &__bottom {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 17px;
+  }
+  &__price {
+    font-size: 1.4rem;
+    line-height: 1.7;
+  }
+  &__btn-container {
+    width: 155px;
+    height: 40px;
+  }
+  &__btn {
+  }
+}
+
+.details {
+  width: 100%;
+  height: 85px;
+  padding: 5px;
+  border-radius: $bradius-small;
+  background-color: $grey-light;
+  font-size: 0.875rem;
+  line-height: 1;
+  color: $black;
+  &__list-types {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+  }
+  &__item-types {
+    flex: 0 0 calc((100% - 10px) / 2);
+    padding: 10px 10px;
+    text-align: center;
+    cursor: pointer;
+    &.active {
+      border-radius: $bradius-small;
+      background-color: #fff;
+    }
+  }
+  &__list-sizes {
+    display: flex;
+    margin-top: 7px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+  }
+  &__item-sizes {
+    flex: 0 0 calc((100% - 10px) / 3);
+    padding: 10px 10px;
+    text-align: center;
+    cursor: pointer;
+    &.active {
+      border-radius: $bradius-small;
+      background-color: #fff;
+    }
+  }
+}

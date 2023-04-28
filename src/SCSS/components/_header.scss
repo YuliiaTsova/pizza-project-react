@@ -1,0 +1,43 @@
+.header {
+}
+
+.header {
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid $gray-line;
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+  }
+  &__logo-img {
+    width: 38px;
+    height: 38px;
+  }
+  &__desc {
+  }
+  &__title {
+    margin: 0;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: $black;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+  &__subtitle {
+    margin: 0;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #7b7b7b;
+    line-height: 1.2;
+  }
+  &__cart {
+    width: 150px;
+    height: 50px;
+  }
+}

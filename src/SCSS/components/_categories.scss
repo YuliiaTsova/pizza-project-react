@@ -1,0 +1,45 @@
+.active {
+}
+.categories {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  &__content {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+}
+.nav {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  &__item {
+    height: 46px;
+    border-radius: $bradius-big;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+    line-height: 1.25;
+    &:hover {
+      background-color: darken(#f9f9f9, 2%);
+    }
+
+    &:active {
+      background-color: darken(#f9f9f9, 5%);
+    }
+  }
+  &__link {
+    display: block;
+    // width: 100%;
+    padding: 12px 35px;
+    border-radius: $bradius-big;
+
+    &.active {
+      background-color: $black;
+      color: #fff;
+    }
+  }
+}
