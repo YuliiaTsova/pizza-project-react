@@ -1,6 +1,7 @@
 .sort {
   margin-left: 25px;
   position: relative;
+  cursor: pointer;
   &__label {
     display: flex;
     align-items: center;
@@ -14,7 +15,6 @@
   &__value {
     color: $orange;
     border-bottom: dotted 1px $orange;
-    cursor: pointer;
   }
   &__drop {
     // display: none;

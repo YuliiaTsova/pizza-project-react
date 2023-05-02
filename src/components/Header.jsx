@@ -10,7 +10,7 @@ export const Header = () => {
             <div className="header__logo">
               <img src={logo} alt="logo" className="header__logo-img" />
               <div className="header__desc">
-                <h1 className="header__title">react pizza</h1>
+                <h1 className="header__title title">react pizza</h1>
                 <p className="header__subtitle">the best pizza in the world</p>
               </div>
             </div>
@@ -18,7 +18,7 @@ export const Header = () => {
               <button className="btn btn--cart btn-reset" aria-label="go to cart">
                 <span>20 $</span>
                 <div className="btn__devider"></div>
-                <img src={cart} alt="cart_img" />
+                <img src={cart} alt="cart img" />
                 <span>3</span>
               </button>
             </div>

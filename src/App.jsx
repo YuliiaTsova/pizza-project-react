@@ -4,6 +4,8 @@ import { Categories } from './components/Categories';
 import { Main } from './components/Main';
 import { PizzaCard } from './components/PizzaCard';
 import { ProductList } from './components/ProductsList';
+import { Cart } from './components/Cart';
+import { EmptyCard } from './components/EmptyCard';
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
           </div>
         </section> */}
         <ProductList />
+        {/* <Cart /> */}
+        {/* <EmptyCard /> */}
       </Main>
       {/* </div>
       </main> */}

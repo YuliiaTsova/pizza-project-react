@@ -5,6 +5,9 @@
   border-radius: $bradius-big;
   font-size: 1rem;
   text-align: center;
+  &:active {
+    transform: translateY(1px);
+  }
 
   // cursor: pointer;
 
@@ -17,20 +20,20 @@
 
     background-color: $orange;
     color: #fff;
-
+    transition: background-color $duration ease-in-out;
     img {
       width: 16px;
       height: 16px;
       margin-right: 8px;
     }
     &:hover {
-      background-color: darken($orange, 8%);
+      background-color: darken($orange, 12%);
     }
 
-    &:active {
-      background-color: darken($orange, 12%);
-      transform: translateY(1px);
-    }
+    // &:active {
+    //   background-color: darken($orange, 12%);
+    //   // transform: translateY(1px);
+    // }
   }
   &__devider {
     width: 1px;
@@ -40,6 +43,14 @@
     margin-right: 14px;
   }
 
+  @media (max-width: 600px) {
+    & > span:first-child {
+      display: none;
+    }
+    &__devider {
+      display: none;
+    }
+  }
   &--outline {
     padding: 10px 15px;
     border: 1px solid $orange;
@@ -64,8 +75,38 @@
         color: $orange;
       }
     }
+    // &:active {
+    //   transform: translateY(1px);
+    // }
+  }
+
+  &--grey {
+    color: #b6b6b6;
+    border-color: #b6b6b6;
+
+    &:hover {
+      background-color: $black;
+      color: #fff;
+    }
+  }
+
+  &--fill {
+    padding: 10px 15px;
+    line-height: 1.2;
+    background-color: #fff;
+    background-color: $orange;
+    color: #fff;
+    transition: background-color $duration ease-in-out;
+    & * {
+      transition: all $duration ease-in-out;
+    }
+
+    &:hover {
+      background-color: darken($orange, 12%);
+      color: #fff;
+    }
     &:active {
-      transform: translateY(1px);
+      // transform: translateY(1px);
     }
   }
 
@@ -95,5 +136,46 @@
     &.added {
       display: inline-block;
     }
+  }
+}
+
+.btn-small {
+  display: inline-block;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border: 2px solid $orange;
+  border-radius: 50%;
+  transition: background-color $duration ease-in-out;
+  @media (max-width: 475px) {
+    width: 25px;
+    height: 25px;
+  }
+  &__img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover {
+    background-color: $orange;
+    color: #fff;
+    .btn-small__img {
+      path {
+        fill: #fff;
+      }
+    }
+  }
+  &--grey {
+    //transition: border-color $duration ease-in-out;
+    &:hover {
+      background-color: $black;
+      border: none;
+    }
+  }
+
+  & * {
+    transition: all $duration ease-in-out;
   }
 }
