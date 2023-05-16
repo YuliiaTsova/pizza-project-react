@@ -1,6 +1,7 @@
 .sort {
   margin-left: 25px;
   position: relative;
+  min-width: 225px;
   cursor: pointer;
   &__label {
     display: flex;
@@ -8,6 +9,9 @@
     gap: 5px;
   }
   &__label-img {
+    &.active {
+      transform: rotate(0.5turn);
+    }
   }
   &__title {
     min-width: 60px;

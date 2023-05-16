@@ -1,14 +1,21 @@
-import React from 'react';
 import cart from '../assets/cart_black.svg';
-import pizza from '../assets/pizza1.png';
 
 import { ReactComponent as Bin } from '../assets/bin.svg';
-import { ReactComponent as Minus } from '../assets/minus.svg';
-import { ReactComponent as Plus } from '../assets/plus.svg';
-import { ReactComponent as Cancel } from '../assets/cancel.svg';
-import { ReactComponent as Arrow } from '../assets/arrow-back.svg';
+
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { CartCard } from './CartCard';
+import { clearAll } from '../redux/slices/cartSlice';
+import { ButtonBack } from './ButtonBack';
 
 export const Cart = () => {
+  const { items: cartItems, totalPrice, totalCount } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  const onClickClearAll = () => {
+    dispatch(clearAll());
+  };
+
   return (
     <section className="cart" aria-label="order cart">
       <div className="cart__top">
@@ -18,87 +25,40 @@ export const Cart = () => {
 
           <h2 className="cart__title title">Your order</h2>
         </div>
-        <div className="cart__reset">
+        <div className="cart__reset" onClick={onClickClearAll}>
           {/* <img src={bin} alt="bin pic" className="cart__bin-img" /> */}
           <Bin alt="bin pic" className="cart__bin-img" />
           <p className="cart__reset-text">Clear all</p>
         </div>
       </div>
-      <article className="cart__order order" aria-label="order details">
-        <div className="order__item">
-          <div className="order__item-img">
-            <img src={pizza} alt="pizza" className="order__img" />
-          </div>
-          <div className="order__details">
-            <h3 className="order__title">Name</h3>
-            <p className="order__descr">double, 12 inch</p>
-          </div>
-        </div>
-        <div className="order__quantity">
-          <button className="order__quantity-controls btn-reset btn-small">
-            {/* <img src={minus} alt="minus" className="btn-small__minus" /> */}
-            <Minus alt="minus" className="btn-small__img" />
-          </button>
-          <span className="order__number">2</span>
-          <button className="order__quantity-controls btn-small btn-reset">
-            {/* <img src={plus} alt="plus" className="btn-small__plus" /> */}
-            <Plus alt="plus" className="btn-small__img" />
-          </button>
-        </div>
-        <div className="order__price">15 $</div>
-        <button className="order__delete btn-small btn-small--grey btn-reset">
-          {/* <img src={cancel} alt="delete pizza" className="order__delete-img" /> */}
-          <Cancel alt="delete pizza" className="btn-small__img" />
-        </button>
-      </article>
-      <article className="cart__order order" aria-label="order details">
-        <div className="order__item">
-          <div className="order__item-img">
-            <img src={pizza} alt="pizza" className="order__img" />
-          </div>
-          <div className="order__details">
-            <h3 className="order__title">Name</h3>
-            <p className="order__descr">double, 12 inch</p>
-          </div>
-        </div>
-        <div className="order__quantity">
-          <button className="order__quantity-controls btn-reset btn-small">
-            {/* <img src={minus} alt="minus" className="btn-small__minus" /> */}
-            <Minus alt="minus" className="btn-small__img" />
-          </button>
-          <span className="order__number">2</span>
-          <button className="order__quantity-controls btn-small btn-reset">
-            {/* <img src={plus} alt="plus" className="btn-small__plus" /> */}
-            <Plus alt="plus" className="btn-small__img" />
-          </button>
-        </div>
-        <div className="order__price">15 $</div>
-        <button className="order__delete btn-small btn-small--grey btn-reset">
-          {/* <img src={cancel} alt="delete pizza" className="order__delete-img" /> */}
-          <Cancel alt="delete pizza" className="btn-small__img" />
-        </button>
-      </article>
+      <ul className="cart__order-list list-reset">
+        {cartItems.map((el) => (
+          <li key={el.id + el.size + el.type} className="cart__order-item">
+            <CartCard {...el} />
+          </li>
+        ))}
+      </ul>
+
       <div className="cart__total">
         <div className="cart__total-pizza">
           You ordered:
           <span>
-            <b> 3 pcs</b>
+            <b> {totalCount} pcs</b>
           </span>
         </div>
         <div className="cart__total-price">
           Total price:
           <span>
-            <b> 50 $</b>
+            <b> {totalPrice} $</b>
           </span>
         </div>
       </div>
       <div className="cart__bottom">
-        <div className="cart__btn">
-          <button className="btn btn--outline btn--grey btn-reset">
-            <Arrow className="btn__img" />
-            Go back
-          </button>
-        </div>
+        <Link to="/">
+          <div className="cart__btn">
+            <ButtonBack> Go back</ButtonBack>
+          </div>
+        </Link>
         <div className="cart__btn">
           <button className="btn btn--fill btn-reset">Check out</button>
         </div>

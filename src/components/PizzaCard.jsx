@@ -1,56 +1,81 @@
-import { ReactComponent as Plus } from '../assets/plus.svg';
-import pizza from '../assets/pizza1.png';
-import ContentLoader from 'react-content-loader';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem } from '../redux/slices/cartSlice';
+import { Button } from './Button';
+import { Link } from 'react-router-dom';
 
-const Loader = ({ props }) => (
-  <ContentLoader
-    speed={2}
-    width={340}
-    height={450}
-    viewBox="0 0 340 450"
-    backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb"
-    style={{ width: '100%', height: '100%' }}
-    {...props}
-  >
-    <rect x="7" y="260" rx="20" ry="20" width="333" height="123" />
-    <rect x="7" y="400" rx="20" ry="20" width="128" height="40" />
-    <rect x="155" y="400" rx="20" ry="20" width="176" height="40" />
-    <circle cx="171" cy="107" r="104" />
-    <rect x="80" y="224" rx="11" ry="11" width="185" height="21" />
-  </ContentLoader>
-);
+const types = ['Classic', 'Cheese edges'];
 
-export const PizzaCard = () => {
+export const PizzaCard = (props) => {
+  const [pizzaType, setPizzaType] = useState(props.types[0]);
+  const [pizzaSize, setPizzaSize] = useState(props.sizes[0]);
+
+  const pizzaCount = useSelector((state) => {
+    return state.cart.items
+      .filter((el) => el.id === props.id)
+      .reduce((sum, el) => sum + el.count, 0);
+  });
+
+  const addedPizza = pizzaCount ? pizzaCount : 0;
+
+  const dispatch = useDispatch();
+
+  const onClickAddPizza = () => {
+    const item = {
+      id: props.id,
+      imageUrl: props.imageUrl,
+      type: types[pizzaType],
+      size: pizzaSize,
+      price: pizzaPrice,
+      name: props.name,
+    };
+
+    dispatch(addItem(item));
+  };
+
+  const pricePizzaType = pizzaType === 0 ? 1 : 1.1;
+  const pizzaPrice = Math.round((props.price * pizzaSize * pricePizzaType) / 10);
+
   return (
     <article className="item">
-      <div className="item__img">
-        <img src={pizza} alt="pizza" />
-      </div>
-      <h3 className="item__title">Meat</h3>
+      <Link to={`/pizza/${props.id}`}>
+        <div className="item__img">
+          <img src={props.imageUrl} alt="pizza" />
+        </div>
+      </Link>
+      <h3 className="item__title">{props.name}</h3>
       <div className="item__details details">
         <ul className="details__list-types list-reset">
-          <li className="details__item-types active">Classic</li>
-          <li className="details__item-types ">Double</li>
+          {props.types.map((type) => (
+            <li
+              className={`details__item-sizes ${type === pizzaType ? `active` : ''}`}
+              key={type}
+              onClick={() => {
+                setPizzaType(type);
+              }}
+            >
+              {types[type]}
+            </li>
+          ))}
         </ul>
         <ul className="details__list-sizes list-reset">
-          <li className="details__item-sizes active">10 inch</li>
-          <li className="details__item-sizes ">12 inch</li>
-          <li className="details__item-sizes ">14 inch</li>
+          {props.sizes.map((size) => (
+            <li
+              className={`details__item-sizes ${size === pizzaSize ? `active` : ''}`}
+              key={size}
+              onClick={() => setPizzaSize(size)}
+            >
+              {size} inch
+            </li>
+          ))}
         </ul>
       </div>
       <div className="item__bottom">
-        <span className="item__price"> from 15 $</span>
+        <span className="item__price"> from {pizzaPrice} $</span>
         <div className="item__btn-container">
-          <button className="btn item__btn btn--outline btn-reset" aria-label="add pizza">
-            <Plus className="btn__img" />
-            {/* <img src={Plus} alt="plus" className="btn__img" /> */}
-            <span className="btn__title">Add pizza</span>
-            <span className="btn__quantity added">2</span>
-          </button>
+          <Button addedPizza={addedPizza} onClickAddPizza={onClickAddPizza} />
         </div>
       </div>
     </article>
-    //  <Loader />
   );
 };

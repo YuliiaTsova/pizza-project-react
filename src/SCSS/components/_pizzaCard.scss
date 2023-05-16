@@ -78,6 +78,7 @@
     &.active {
       border-radius: $bradius-small;
       background-color: #fff;
+      cursor: initial;
     }
   }
   &__list-sizes {
@@ -96,6 +97,7 @@
     &.active {
       border-radius: $bradius-small;
       background-color: #fff;
+      cursor: initial;
     }
   }
 }

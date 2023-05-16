@@ -43,14 +43,14 @@
     margin-right: 14px;
   }
 
-  @media (max-width: 600px) {
-    & > span:first-child {
-      display: none;
-    }
-    &__devider {
-      display: none;
-    }
-  }
+  // @media (max-width: 600px) {
+  //   & > span:first-child {
+  //     display: none;
+  //   }
+  //   &__devider {
+  //     display: none;
+  //   }
+  // }
   &--outline {
     padding: 10px 15px;
     border: 1px solid $orange;

@@ -32,6 +32,11 @@
     cursor: pointer;
     &:hover {
       color: darken(#b6b6b6, 30%);
+      .cart__bin-img {
+        path {
+          stroke: darken(#b6b6b6, 30%);
+        }
+      }
     }
   }
   &__bin-img {
@@ -41,11 +46,6 @@
     @media (max-width: 475px) {
       width: 14px;
       height: 14px;
-    }
-    &:hover {
-      path {
-        stroke: darken(#b6b6b6, 30%);
-      }
     }
   }
   &__reset-text {

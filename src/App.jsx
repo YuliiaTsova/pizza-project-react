@@ -1,52 +1,22 @@
 import './app.scss';
-import { Header } from './components/Header';
-import { Categories } from './components/Categories';
-import { Main } from './components/Main';
-import { PizzaCard } from './components/PizzaCard';
-import { ProductList } from './components/ProductsList';
-import { Cart } from './components/Cart';
-import { EmptyCard } from './components/EmptyCard';
+import { CartPage } from './pages/CartPage';
+import { Route, Routes } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { PizzaDetailBlock } from './components/PizzaDetailBlock';
+import { Layout } from './components/Layout';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 function App() {
   return (
-    <div className="wrapper">
-      <Header />
-      <Categories />
-      <Main>
-        {/* <main> */}
-        {/* <div className="container"> */}
-        {/* <section className="products" aria-label="products">
-          <h2 className="products__title">all pizzas</h2>
-          <div className="products__content">
-            <ul className="products__list list-reset">
-              <li className="products_item">
-                <PizzaCard />
-              </li>
-              <li className="products_item">
-                <PizzaCard />
-              </li>
-              <li className="products_item">
-                <PizzaCard />
-              </li>
-              <li className="products_item">
-                <PizzaCard />
-              </li>
-              <li className="products_item">
-                <PizzaCard />
-              </li>
-              <li className="products_item">
-                <PizzaCard />
-              </li>
-            </ul>
-          </div>
-        </section> */}
-        <ProductList />
-        {/* <Cart /> */}
-        {/* <EmptyCard /> */}
-      </Main>
-      {/* </div>
-      </main> */}
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="" element={<Home />} />
+
+        <Route path="cart" element={<CartPage />} />
+        <Route path="pizza/:id" element={<PizzaDetailBlock />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    </Routes>
   );
 }
 

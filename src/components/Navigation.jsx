@@ -1,37 +1,25 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { setCategoryId } from '../redux/slices/filterSlice';
+
+const categories = ['All', 'Meat', 'Vegan', 'Grill', 'Spicy', 'Sweet'];
+
 export const Navigation = () => {
+  const categoryId = useSelector((state) => state.filter.categoryId);
+  const dispatch = useDispatch();
+
   return (
     <nav className="nav">
       <ul className="nav__list list-reset">
-        <li className="nav__item ">
-          <a href="#" className="nav__link active">
-            All
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#" className="nav__link">
-            Meat
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#" className="nav__link">
-            Veagan
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#" className="nav__link">
-            Grill
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#" className="nav__link">
-            Spicy
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#" className="nav__link">
-            Calzone
-          </a>
-        </li>
+        {categories.map((cat, i) => (
+          <li
+            key={cat}
+            className={`nav__item ${categoryId === i ? 'active' : ''}`}
+            onClick={() => dispatch(setCategoryId(i))}
+          >
+            {' '}
+            {cat}
+          </li>
+        ))}
       </ul>
     </nav>
   );

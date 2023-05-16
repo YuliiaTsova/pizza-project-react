@@ -1,36 +1,65 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import arrow from '../assets/arrow.svg';
+import { setSortType } from '../redux/slices/filterSlice';
+
+const list = [
+  { name: 'Top rated', sortType: '-rating' },
+  { name: 'Price: Low to High', sortType: 'price' },
+  { name: 'Price: High to Low', sortType: '-price' },
+  { name: 'Name A-Z', sortType: 'name' },
+  { name: 'Name Z-A', sortType: '-name' },
+];
 
 export const Sort = () => {
-  const list = ['popular', 'price', 'alphabet'];
+  const sortType = useSelector((state) => state.filter.sortType);
 
-  const [isOpen, setIsOpen] = useState(true);
-  const [selected, setSelected] = useState(0);
+  const dispatch = useDispatch();
 
-  const sortHandler = (i) => {
-    setSelected(i);
+  const [isOpen, setIsOpen] = useState(false);
+  const sortRef = useRef();
+
+  const sortHandler = (el) => {
+    dispatch(setSortType(el));
     setIsOpen(false);
   };
 
+  //close pop up if click is outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.composedPath().includes(sortRef.current)) {
+        setIsOpen(false);
+      }
+    };
+    document.body.addEventListener('click', handleClickOutside);
+    return () => document.body.removeEventListener('click', handleClickOutside);
+  }, []);
+
   return (
-    <div className="sort" aria-label="sort by">
+    <div className="sort" aria-label="sort by" ref={sortRef}>
       <div className="sort__label" onClick={() => setIsOpen((prev) => !prev)}>
-        <img className="sort__label-img" src={arrow} alt="drop down arrow" />
+        <img
+          className={`sort__label-img ${isOpen ? 'active' : ''}`}
+          src={arrow}
+          alt="drop down arrow"
+        />
         <p className="sort__title">
           <b>Sort by: </b>
         </p>
-        <span className="sort__value">{list[selected]}</span>
+        <span className="sort__value">{sortType.name}</span>
       </div>
       {isOpen && (
         <div className="sort__drop">
           <ul className="sort__list list-reset">
-            {list.map((el, i) => (
+            {list.map((el) => (
               <li
-                key={el}
-                className={`sort__item${selected === i ? ' sort__item active' : ''}`}
-                onClick={() => sortHandler(i)}
+                key={el.name}
+                className={`sort__item${
+                  sortType.name === el.name ? ' sort__item active' : ''
+                }`}
+                onClick={() => sortHandler(el)}
               >
-                {el}
+                {el.name}
               </li>
             ))}
           </ul>
