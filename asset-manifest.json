@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react_orange_pizza/static/css/main.dc202f25.css",
+    "main.js": "/react_orange_pizza/static/js/main.1b03175e.js",
+    "static/media/empty-card.png": "/react_orange_pizza/static/media/empty-card.ab5ba48c3786677ceede.png",
+    "static/media/cart_black.svg": "/react_orange_pizza/static/media/cart_black.dcd5168086a25b3307ba9f5524ca6e70.svg",
+    "static/media/cart.svg": "/react_orange_pizza/static/media/cart.d05720f2b474db2145233cd2ce1d4e91.svg",
+    "static/media/bin.svg": "/react_orange_pizza/static/media/bin.ceafcffb34cece0b1462c3505b170d88.svg",
+    "static/media/cancel.svg": "/react_orange_pizza/static/media/cancel.7696257a3cd8715ab8e7d99d90872982.svg",
+    "index.html": "/react_orange_pizza/index.html",
+    "static/media/arrow.svg": "/react_orange_pizza/static/media/arrow.d9efb1c44a224e89e853aaa4357f717b.svg",
+    "static/media/plus.svg": "/react_orange_pizza/static/media/plus.dcca509e467c41efa81e3ba990c0309b.svg",
+    "static/media/minus.svg": "/react_orange_pizza/static/media/minus.fe679d6907ef6db33dcc9872be10703a.svg",
+    "static/media/arrow-back.svg": "/react_orange_pizza/static/media/arrow-back.fc29ec73901b6f8218c91a0d69592416.svg",
+    "main.dc202f25.css.map": "/react_orange_pizza/static/css/main.dc202f25.css.map",
+    "main.1b03175e.js.map": "/react_orange_pizza/static/js/main.1b03175e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc202f25.css",
+    "static/js/main.1b03175e.js"
+  ]
+}
