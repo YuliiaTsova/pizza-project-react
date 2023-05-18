@@ -54,11 +54,11 @@ export const Cart = () => {
         </div>
       </div>
       <div className="cart__bottom">
-        <Link to="/">
-          <div className="cart__btn">
-            <ButtonBack> Go back</ButtonBack>
-          </div>
-        </Link>
+        {/* <Link to="/"> */}
+        <div className="cart__btn">
+          <ButtonBack> Go back</ButtonBack>
+        </div>
+        {/* </Link> */}
         <div className="cart__btn">
           <button className="btn btn--fill btn-reset">Check out</button>
         </div>

@@ -40,11 +40,11 @@ export const PizzaDetailBlock = () => {
         <p className="pizza-detail__price">
           <span>price from:</span> {pizzaInfo.price} $
         </p>
-        <Link to="/">
-          <div className="pizza-detail__btn">
-            <ButtonBack>Go back</ButtonBack>
-          </div>
-        </Link>
+        {/* <Link to="/"> */}
+        <div className="pizza-detail__btn">
+          <ButtonBack>Go back</ButtonBack>
+        </div>
+        {/* </Link> */}
       </div>
     </section>
   );

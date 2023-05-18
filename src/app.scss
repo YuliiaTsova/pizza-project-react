@@ -19,6 +19,15 @@ main {
   margin: 50px auto;
   border-radius: 10px;
   max-width: 1340px; //1400px;
+
+  @media (max-width: 1115px) {
+    width: calc(100vw - 40px);
+    margin-top: 20px;
+  }
+
+  @media (max-width: 500px) {
+    width: calc(100vw - 20px);
+  }
 }
 
 .container {
@@ -42,7 +51,7 @@ main {
     margin-top: 15px;
   }
   &__content {
-    margin-top: 15px;
+    margin-top: 25px;
   }
   &__list {
     display: grid;

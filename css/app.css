@@ -30,6 +30,13 @@ a {
   padding-bottom: 40px;
   border-bottom: 1px solid #f6f6f6;
 }
+@media (max-width: 600px) {
+  .header__content {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+}
 .header__logo {
   display: flex;
   align-items: center;
@@ -56,7 +63,7 @@ a {
   line-height: 1.2;
 }
 .header__cart {
-  width: 150px;
+  max-width: 180px;
   height: 50px;
 }
 
@@ -200,20 +207,25 @@ a {
 }
 
 .categories {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 5px 5px;
 }
 .categories__content {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  row-gap: 15px;
+}
+@media (max-width: 810px) {
+  .categories__content {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .nav__list {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
   gap: 10px;
 }
 .nav__item {
@@ -222,12 +234,27 @@ a {
   background-color: #f9f9f9;
   font-size: 1rem;
   line-height: 1.25;
+  padding: 12px 35px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.nav__item.active {
+  background-color: #282828;
+  color: #fff;
+}
+.nav__item.active:hover {
+  background-color: #282828;
 }
 .nav__item:hover {
   background-color: #f4f4f4;
 }
 .nav__item:active {
   background-color: #ececec;
+}
+@media (max-width: 810px) {
+  .nav__item {
+    padding: 12px 18px;
+  }
 }
 .nav__link {
   display: block;
@@ -242,12 +269,16 @@ a {
 .sort {
   margin-left: 25px;
   position: relative;
+  min-width: 225px;
   cursor: pointer;
 }
 .sort__label {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+.sort__label-img.active {
+  transform: rotate(0.5turn);
 }
 .sort__title {
   min-width: 60px;
@@ -362,6 +393,7 @@ a {
 .details__item-types.active {
   border-radius: 10px;
   background-color: #fff;
+  cursor: initial;
 }
 .details__list-sizes {
   display: flex;
@@ -379,6 +411,7 @@ a {
 .details__item-sizes.active {
   border-radius: 10px;
   background-color: #fff;
+  cursor: initial;
 }
 
 .cart {
@@ -416,6 +449,9 @@ a {
 .cart__reset:hover {
   color: #6a6a6a;
 }
+.cart__reset:hover .cart__bin-img path {
+  stroke: #6a6a6a;
+}
 .cart__bin-img {
   width: 20px;
   height: 20px;
@@ -426,9 +462,6 @@ a {
     width: 14px;
     height: 14px;
   }
-}
-.cart__bin-img:hover path {
-  stroke: #6a6a6a;
 }
 .cart__reset-text {
   font-size: 1rem;
@@ -607,6 +640,99 @@ a {
   margin-top: 50px;
 }
 
+.pagination__list {
+  width: 150px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+}
+.pagination__item {
+  padding: 4px 8px;
+  border: 1px solid #fe5f1e;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.pagination__item.active, .pagination__item:hover {
+  background-color: #fe5f1e;
+  color: #fff;
+}
+
+.pizza-detail {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+.pizza-detail__img {
+  max-width: 250px;
+  max-height: 250px;
+}
+.pizza-detail__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.pizza-detail__title {
+  margin: 0;
+  margin-top: 15px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.pizza-detail__descr {
+  margin: 0;
+  margin-top: 15px;
+  font-weight: 400;
+}
+.pizza-detail__descr span {
+  font-weight: 700;
+}
+.pizza-detail__price {
+  margin: 0;
+  margin-top: 15px;
+  font-weight: 400;
+}
+.pizza-detail__price span {
+  font-weight: 700;
+}
+.pizza-detail__btn {
+  width: 211px;
+  height: 55px;
+  margin-top: 35px;
+}
+@media (max-width: 600px) {
+  .pizza-detail {
+    flex-direction: column;
+  }
+}
+
+.not-found {
+  width: clamp(300px, 30%, 800px);
+  margin: 0 auto;
+  padding: 0 10px;
+  text-align: center;
+}
+.not-found__title {
+  margin: 0;
+}
+.not-found__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (max-width: 450px) {
+  .not-found {
+    width: 200px;
+  }
+  .not-found__title {
+    font-size: 1rem;
+  }
+}
+
 body {
   background-color: #ffdf8c;
   font-family: Nunito, sans-serif;
@@ -638,7 +764,7 @@ main {
   font-weight: 700;
   line-height: 1.25;
 }
-@media (max-width: 475px) {
+@media (max-width: 500px) {
   .title {
     font-size: 1.25rem;
   }
@@ -646,6 +772,10 @@ main {
 
 .products__title {
   text-transform: uppercase;
+  margin-top: 15px;
+}
+.products__content {
+  margin-top: 25px;
 }
 .products__list {
   display: grid;

@@ -22,10 +22,13 @@ export const ProductList = () => {
     throw new Error(status);
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 200);
+  }, [currentPage]);
+
   return (
     <>
       <section className="products" aria-label="products">
-        <h2 className="products__title title">all pizzas</h2>
         <div className="products__content">
           <ul className="products__list list-reset">
             {status === 'loading'
