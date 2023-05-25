@@ -37,7 +37,6 @@ export const CartCard = ({ id, imageUrl, type, size, price, name, count }) => {
           className="order__quantity-controls btn-reset btn-small"
           onClick={onClickMinusItem}
         >
-          {/* <img src={minus} alt="minus" className="btn-small__minus" /> */}
           <Minus alt="minus" className="btn-small__img" />
         </button>
         <span className="order__number">{count}</span>
@@ -45,7 +44,6 @@ export const CartCard = ({ id, imageUrl, type, size, price, name, count }) => {
           className="order__quantity-controls btn-small btn-reset"
           onClick={onClickAddItem}
         >
-          {/* <img src={plus} alt="plus" className="btn-small__plus" /> */}
           <Plus alt="plus" className="btn-small__img" />
         </button>
       </div>
@@ -54,7 +52,6 @@ export const CartCard = ({ id, imageUrl, type, size, price, name, count }) => {
         className="order__delete btn-small btn-small--grey btn-reset"
         onClick={onClickClearItem}
       >
-        {/* <img src={cancel} alt="delete pizza" className="order__delete-img" /> */}
         <Cancel alt="delete pizza" className="btn-small__img" />
       </button>
     </article>

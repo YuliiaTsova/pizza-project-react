@@ -10,12 +10,10 @@ export const fetchPizzas = createAsyncThunk(
   'pizza/fetchPizzas',
   async ({ categoryId, sortType, currentPage }) => {
     const category = categoryId === 0 ? '' : `&category=${categoryId}`;
-    //const sort = `&sortBy=rating&order=desc`;
     const sort = `&sortBy=${sortType.replace('-', '')}&order=${
       sortType.includes('-') ? 'desc' : 'asc'
     }`;
     const page = `page=${currentPage}&limit=4`;
-    // sortBy=price&order=desc
 
     const res = await axios.get(
       'https://64525b25a2860c9ed409bbf0.mockapi.io/pizzas?' + page + category + sort
@@ -50,7 +48,6 @@ const pizzaSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchPizzas.pending, (state, action) => {
       state.status = 'loading';
-      //state.items = [];
     });
 
     builder.addCase(fetchPizzas.fulfilled, (state, action) => {

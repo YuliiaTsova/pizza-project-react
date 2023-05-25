@@ -1,5 +1,4 @@
 .btn {
-  // display: block;
   width: 100%;
   height: 100%;
   border-radius: $bradius-big;
@@ -9,15 +8,11 @@
     transform: translateY(1px);
   }
 
-  // cursor: pointer;
-
   &--cart {
     display: flex;
     align-items: center;
     line-height: 1.2;
-    //  justify-content: space-between;
     padding: 12px 25px;
-
     background-color: $orange;
     color: #fff;
     transition: background-color $duration ease-in-out;
@@ -29,11 +24,6 @@
     &:hover {
       background-color: darken($orange, 12%);
     }
-
-    // &:active {
-    //   background-color: darken($orange, 12%);
-    //   // transform: translateY(1px);
-    // }
   }
   &__devider {
     width: 1px;
@@ -43,14 +33,6 @@
     margin-right: 14px;
   }
 
-  // @media (max-width: 600px) {
-  //   & > span:first-child {
-  //     display: none;
-  //   }
-  //   &__devider {
-  //     display: none;
-  //   }
-  // }
   &--outline {
     padding: 10px 15px;
     border: 1px solid $orange;
@@ -75,9 +57,6 @@
         color: $orange;
       }
     }
-    // &:active {
-    //   transform: translateY(1px);
-    // }
   }
 
   &--grey {
@@ -105,9 +84,6 @@
       background-color: darken($orange, 12%);
       color: #fff;
     }
-    &:active {
-      // transform: translateY(1px);
-    }
   }
 
   &__img {
@@ -120,8 +96,6 @@
     margin-right: 8px;
   }
   &__quantity {
-    // position: relative;
-    // top: -1px;
     display: none;
     width: 22px;
     height: 22px;
@@ -132,7 +106,7 @@
     font-size: 0.81rem;
     line-height: 1;
     color: #fff;
-    // text-align: center;
+
     &.added {
       display: inline-block;
     }
@@ -168,7 +142,6 @@
     }
   }
   &--grey {
-    //transition: border-color $duration ease-in-out;
     &:hover {
       background-color: $black;
       border: none;

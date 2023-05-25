@@ -79,10 +79,6 @@ const cartSlice = createSlice({
   },
 });
 
-// // {
-//   type: 'cart/clearItem', payload: {id: 14, size:12, type: 'Classic'}
-// }
-
 export const { addItem, clearAll, clearItem, minusItem } = cartSlice.actions;
 
 export default cartSlice.reducer;
