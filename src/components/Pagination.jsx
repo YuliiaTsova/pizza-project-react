@@ -28,7 +28,7 @@ export const Pagination = ({ length }) => {
   return (
     <div className="pagination" aria-label="pagination">
       <ul className="pagination__list list-reset">
-        {[...new Array(Math.round(count / 4))].map((el, i) => (
+        {[...new Array(Math.round(count / 8))].map((el, i) => (
           <li
             key={i}
             className={`pagination__item ${currentPage === i + 1 ? 'active' : ''}`}

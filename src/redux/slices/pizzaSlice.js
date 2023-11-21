@@ -13,7 +13,7 @@ export const fetchPizzas = createAsyncThunk(
     const sort = `&sortBy=${sortType.replace('-', '')}&order=${
       sortType.includes('-') ? 'desc' : 'asc'
     }`;
-    const page = `page=${currentPage}&limit=4`;
+    const page = `page=${currentPage}&limit=8`;
 
     const res = await axios.get(
       'https://64525b25a2860c9ed409bbf0.mockapi.io/pizzas?' + page + category + sort

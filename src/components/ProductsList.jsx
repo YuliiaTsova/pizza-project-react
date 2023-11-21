@@ -32,7 +32,7 @@ export const ProductList = () => {
         <div className="products__content">
           <ul className="products__list list-reset">
             {status === 'loading'
-              ? [...new Array(4)].map((el, i) => (
+              ? [...new Array(8)].map((el, i) => (
                   <li className="products_item" key={i}>
                     <Loader />
                   </li>
