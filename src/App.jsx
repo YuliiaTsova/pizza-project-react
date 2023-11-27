@@ -10,7 +10,7 @@ function App() {
   return (
     <Routes>
       <Route path="pizza-project-react/" element={<Layout />}>
-        <Route path="" element={<Home />} />
+        <Route path="/" element={<Home />} />
 
         <Route path="cart" element={<CartPage />} />
         <Route path="pizza/:id" element={<PizzaDetailBlock />} />
