@@ -9,13 +9,13 @@ import { NotFoundPage } from './pages/NotFoundPage';
 function App() {
   return (
     <Routes>
-      <Route path="pizza-project-react/" element={<Layout />}>
-        <Route path="pizza-project-react/" element={<Home />} />
+      {/* <Route path="" element={<Layout />}> */}
+      <Route path="/" element={<Home />} />
 
-        <Route path="cart" element={<CartPage />} />
-        <Route path="pizza/:id" element={<PizzaDetailBlock />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Route>
+      <Route path="cart" element={<CartPage />} />
+      <Route path="pizza/:id" element={<PizzaDetailBlock />} />
+      <Route path="*" element={<NotFoundPage />} />
+      {/* </Route> */}
     </Routes>
   );
 }
