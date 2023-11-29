@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ButtonBack } from './ButtonBack';
+import { PizzaParameters } from './PizzaParameters';
 
 export const PizzaDetailBlock = () => {
   const { id } = useParams();
@@ -34,13 +35,15 @@ export const PizzaDetailBlock = () => {
       <div className="pizza-detail__info">
         <h2 className="pizza-detail__title">{pizzaInfo.name}</h2>
         <p className="pizza-detail__descr">
-          <span>description: </span> Lorem ipsum dolor sit amet consectetur, adipisicing
+          <span>Description: </span> Lorem ipsum dolor sit amet consectetur, adipisicing
           elit. Facere, non?
         </p>
         <p className="pizza-detail__price">
-          <span>price from:</span> {pizzaInfo.price} $
+          <span>Price from:</span> {pizzaInfo.price} $
         </p>
-
+        <div className="pizza-detail__params">
+          <PizzaParameters {...pizzaInfo} />
+        </div>
         <div className="pizza-detail__btn">
           <ButtonBack>Go back</ButtonBack>
         </div>

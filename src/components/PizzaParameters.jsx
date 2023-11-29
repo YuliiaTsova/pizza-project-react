@@ -1,14 +1,13 @@
-// import { useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { addItem } from '../redux/slices/cartSlice';
-// import { Button } from './Button';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem } from '../redux/slices/cartSlice';
+import { Button } from './Button';
 import { Link } from 'react-router-dom';
-import { PizzaParameters } from './PizzaParameters';
 
 const types = ['Classic', 'Cheese edges'];
 
-export const PizzaCard = (props) => {
-  /* const [pizzaType, setPizzaType] = useState(props.types[0]);
+export const PizzaParameters = (props) => {
+  const [pizzaType, setPizzaType] = useState(props.types[0]);
   const [pizzaSize, setPizzaSize] = useState(props.sizes[0]);
 
   const pizzaCount = useSelector((state) => {
@@ -35,18 +34,11 @@ export const PizzaCard = (props) => {
   };
 
   const pricePizzaType = pizzaType === 0 ? 1 : 1.1;
-  const pizzaPrice = Math.round((props.price * pizzaSize * pricePizzaType) / 10);*/
-
+  const pizzaPrice = Math.round((props.price * pizzaSize * pricePizzaType) / 10);
   return (
-    <article className="item">
-      <Link to={`/pizza/${props.id}`}>
-        <div className="item__img">
-          <img src={props.imageUrl} alt="pizza" />
-        </div>
-      </Link>
-      <h3 className="item__title">{props.name}</h3>
-      <PizzaParameters {...props} />
-      {/* <div className="item__details details">
+    <>
+      {/* <div className="item__details details"> */}
+      <div className="details">
         <ul className="details__list-types list-reset">
           {props.types.map((type) => (
             <li
@@ -73,11 +65,12 @@ export const PizzaCard = (props) => {
         </ul>
       </div>
       <div className="item__bottom">
-        <span className="item__price"> from {pizzaPrice} $</span>
+        {/* <span className="item__price"> from {pizzaPrice} $</span> */}
+        <span className="item__price"> {pizzaPrice} $</span>
         <div className="item__btn-container">
           <Button addedPizza={addedPizza} onClickAddPizza={onClickAddPizza} />
         </div>
-      </div> */}
-    </article>
+      </div>
+    </>
   );
 };
